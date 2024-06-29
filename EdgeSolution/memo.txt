@@ -1,0 +1,15 @@
+sudo systemctl stop iotedge
+sudo systemctl disable iotedge
+sudo apt-get remove --purge iotedge
+sudo docker network prune -f
+sudo rm -rf /etc/iotedge
+sudo rm -rf /var/lib/iotedge
+
+
+# DockerImageの更新状態を以下で確認する。
+docker ps -a
+
+
+# DockerImageが更新されていない場合は、削除後のリスタートする。
+docker rm [image id]
+sudo systemctl restart iotedge
